@@ -1,0 +1,97 @@
+#host-root {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+
+  @keyframes logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    a:nth-of-type(2) .logo {
+      animation: logo-spin infinite 20s linear;
+    }
+  }
+}
+
+.host-app {
+  font-family: Arial, sans-serif;
+  padding: 0 20px 0 20px;
+  background-color: #f0f0f0;
+  height: 100vh; /* vh is a CSS unit that stands for "viewport height" */
+  display: flex;
+  flex-direction: column;
+
+  .card {
+    padding: 2em;
+  }
+  .read-the-docs {
+    color: #888;
+  }
+
+  /* Your CSS */
+  .input-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px;
+  }
+
+  .input-field {
+    padding: 5px;
+    border-radius: 5px;
+  }
+
+  .input-button {
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+  }
+
+  .logged-user {
+    margin: 0;
+  }
+
+  .button {
+    background-color: #4CAF50; /* Green background */
+    border: none; /* Remove border */
+    color: white; /* White text */
+    padding: 15px 32px; /* Padding */
+    text-align: center; /* Centered text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Display inline */
+    font-size: 16px; /* Text size */
+    margin: 4px 2px; /* Margin */
+    cursor: pointer; /* Cursor on hover */
+    transition-duration: 0.4s; /* Transition */
+    width: 200px; /* Fixed width */
+  }
+  
+  .button:hover {
+    background-color: #45a049; /* Green background on hover */
+  }
+  
+  /* Add a container for the buttons and use flexbox to align them in a row */
+  .buttons-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .micro-app-container {
+    background: #ffffff;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+}

@@ -1,12 +1,5 @@
-.container-btn {
-  border: 2px solid #4CAF50; /* Green */
-  border-radius: 5px; /* Rounded border */
-  padding: 10px; /* Some padding */
-  margin: 10px; /* Some margin */
-}
-
 .shared-btn {
-    background: #000;
+    background: red;
     color: #fff;
     border: 1px solid #000;
     border-radius: 4px;

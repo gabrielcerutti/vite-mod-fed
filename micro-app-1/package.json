@@ -11,7 +11,7 @@
     "serve": "vite preview --port 5001 --strictPort"
   },
   "dependencies": {
-    "jotai": "^2.0.3",
+    "jotai": "^2.6.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -24,6 +24,7 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "sass": "^1.71.0",
     "vite": "^5.0.8"
   }
 }
