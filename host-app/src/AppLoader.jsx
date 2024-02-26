@@ -1,33 +1,29 @@
-import { useState, useEffect } from 'react';
+import React, { Suspense } from 'react';
 import PropTypes from 'prop-types';
 
-function AppLoader({ endpoint }) {
-  const [Module, setModule] = useState(null);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    import('microApp1/App')
-      .then((module) => {
-        setModule(module);
-      })
-      .catch((error) => {
-        setError(error);
-      });
-  });
-
-  if (error) {
-    return <div>Failed to load module {endpoint}</div>;
+const AppLoader = ({ module }) => {
+  let LazyComponent;
+  if (module === 'microApp1') {
+    LazyComponent = React.lazy(() =>
+      // This way doesn't work with Vite
+      //import(/* @vite-ignore */ `${module}/${component}`)
+      import('microApp1/App')
+    );
+  } else if (module === 'microApp2') {
+    LazyComponent = React.lazy(() =>
+      import('microApp2/App')
+    );
   }
 
-  if (!Module) {
-    return <div>Loading...</div>;
-  }
-
-  return <Module />;
-}
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <LazyComponent />
+    </Suspense>
+  );
+};
 
 AppLoader.propTypes = {
-  endpoint: PropTypes.string.isRequired,
+  module: PropTypes.string.isRequired,
 };
 
 export default AppLoader;

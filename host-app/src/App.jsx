@@ -1,19 +1,14 @@
 import "./App.scss";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import useSession from "./store";
-//import AppLoader from "./AppLoader";
-//import MicroApp1 from "microApp1/App";
+import AppLoader from "./AppLoader";
 import useStore from "microApp1/store";
-//import MicroApp2 from "microApp2/App";
 
 function App() {
   const [count, setCount] = useStore();
   const [user, setUser] = useSession();
   const [localUser, setLocalUser] = useState("");
   const [currentApp, setCurrentApp] = useState("microApp1");
-
-  const MicroApp1 = React.lazy(() => import("microApp1/App"));
-  const MicroApp2 = React.lazy(() => import("microApp2/App"));
 
   useEffect(() => {
     const user = localStorage.getItem("user");
@@ -70,18 +65,12 @@ function App() {
       <div className="micro-app-container">
         <div className="micro-app">
           {currentApp === "microApp1" && (
-            <React.Suspense fallback={<div>Loading...</div>}>
-              <MicroApp1></MicroApp1>
-            </React.Suspense>
+            <AppLoader module="microApp1" />
           )}
-          {/* <AppLoader endpoint="microApp1/App" /> */}
-          {/* <MicroApp1></MicroApp1> */}
         </div>
         <div className="micro-app">
           {currentApp === "microApp2" && (
-            <React.Suspense fallback={<div>Loading...</div>}>
-              <MicroApp2></MicroApp2>
-            </React.Suspense>
+            <AppLoader module="microApp2" />
           )}
         </div>
       </div>
